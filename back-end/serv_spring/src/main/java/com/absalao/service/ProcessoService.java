@@ -1,5 +1,6 @@
 package com.absalao.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,16 @@ public class ProcessoService {
     @Autowired
     private ProcessoRepository repProcesso;
 
-    @Autowired 
-    private RestTemplate restTemplate;
 
-
-    public Processo findByProcesso(Long id) throws Exception {
-        
+    public Processo findByProcesso(Long id) throws Exception {        
         Optional<Processo> obj = repProcesso.findById(id);
-
     	return obj.orElseThrow(() -> new ObjectNotFoundException(
-    			"Objeto não encontrado! Id: "+id+", NPU:"+Processo.class.getName(), null));
+    			"Processo não encontrado! Id: "+id+", NPU:"+Processo.class.getName(), null));
     }        
     
+    public List<Processo> findProcessoTodos(){
+        return this.repProcesso.findAll();
+    }
 
     public void SalvarProcesso(Processo processo){
         this.repProcesso.save(processo);

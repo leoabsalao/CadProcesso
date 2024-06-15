@@ -1,9 +1,14 @@
 package com.absalao.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,11 +21,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "tb_processo")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(of="id")
+@Data
 public class Processo implements Serializable {
 	private static final long serialVersionUID = 1L;
     
@@ -28,16 +29,20 @@ public class Processo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "npu", length = 20, unique = true, nullable = false)
-    private Long npu;
+    @Column(length = 20, unique = true, nullable = false)
+    private String npu;
 
     @Column(length = 20, nullable = false)
-    @DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    private Calendar datCadastro;
+  //  @DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime datCadastro;
 
     @Column(length = 20, nullable = false)
-    @DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    private Calendar datVisualizado;
+    //@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")    
+    private LocalDateTime datVisualizado;
     
     @Column(length = 70, nullable = false)
     private String municipio;
@@ -49,8 +54,6 @@ public class Processo implements Serializable {
     private String uploadArq;
     
     @Column(nullable = false)
-    private Boolean visualizado;
-
-    
+    private Boolean visualizado;    
     
 }

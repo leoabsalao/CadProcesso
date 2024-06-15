@@ -29,10 +29,16 @@ public class ProcessoController {
     private ProcessoService serviceProcesso;
     
     @RequestMapping(value = "/{id}",method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Long id) throws Exception {
+	public ResponseEntity<?> findProcesso(@PathVariable Long id) throws Exception {
 	  Processo obj = serviceProcesso.findByProcesso(id);
 	  return ResponseEntity.ok().body(obj);		
 	}    
+
+    @RequestMapping(method=RequestMethod.GET)
+    public ResponseEntity<?> findProcessoTodos(){
+        List<Processo> obj = serviceProcesso.findProcessoTodos();
+        return ResponseEntity.ok().body(obj);		
+    }
 
      
 }

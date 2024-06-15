@@ -1,7 +1,18 @@
 package com.absalao.dtos;
 
 import java.util.Calendar;
+import lombok.Data;
 
-public record ProcessoDTO(Long id, Long npu, Calendar datCadastro,Calendar datVisualizado, String municipio, String uf, String uploadArq, Boolean visualizado) {
+@Data
+public class ProcessoDTO{
+
+    private Long _id;
+    private Long npu;
+    private Calendar datCadastro;
+    private Calendar datVisualizado;
+    private String municipio;    
+    private String uf;
+    private String uploadArq;    
+    private Boolean visualizado;
     
 }
