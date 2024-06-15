@@ -1,5 +1,6 @@
 package com.absalao.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,15 +11,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.*;
 
-@Data
+
 @Entity
 @Table(name = "tb_processo")
-public class Processo {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of="id")
+public class Processo implements Serializable {
+	private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "npu", length = 20, unique = true, nullable = false)

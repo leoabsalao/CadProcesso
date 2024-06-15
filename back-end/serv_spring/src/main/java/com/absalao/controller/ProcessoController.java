@@ -2,16 +2,22 @@ package com.absalao.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.absalao.dtos.ProcessoDTO;
 import com.absalao.model.Processo;
 import com.absalao.repository.ProcessoRepository;
+import com.absalao.service.ProcessoService;
 
 import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -19,10 +25,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @AllArgsConstructor
 public class ProcessoController {
 
-    private final ProcessoRepository processoRepository;
+    @Autowired
+    private ProcessoService serviceProcesso;
     
-    @GetMapping
-    public List<Processo> listarProcessos(){
-        return processoRepository.findAll();
-    }
+    @RequestMapping(value = "/{id}",method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Long id) throws Exception {
+	  Processo obj = serviceProcesso.findByProcesso(id);
+	  return ResponseEntity.ok().body(obj);		
+	}    
+
+     
 }
