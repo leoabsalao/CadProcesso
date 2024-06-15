@@ -1,9 +1,7 @@
 package com.absalao.model;
 
-import java.sql.Date;
 import java.util.Calendar;
 
-import org.hibernate.annotations.processing.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
