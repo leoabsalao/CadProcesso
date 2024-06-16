@@ -1,7 +1,5 @@
 <mat-card appearance="outlined">
-  <mat-toolbar color="primary"
-    ><span>Visualização dos Processos</span></mat-toolbar
-  >
+  <mat-toolbar color="primary"><span>Visualização dos Processos</span></mat-toolbar>
 
   <mat-card-content></mat-card-content>
   <div
@@ -58,10 +56,10 @@
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        
+        <!-- Redireciona para um form de cadastro -->
         <mat-header-cell *matHeaderCellDef>          
           <button mat-mini-fab color="accent" aria-label="Inserir um processo">
-            <mat-icon>add</mat-icon>
+            <mat-icon (click)="onAdd()"  >add</mat-icon>
           </button>
         </mat-header-cell>       
 
