@@ -1,8 +1,8 @@
 export interface Processo {
    _id: string;
    npu: string;
-   datCadastro: Date;
-   datVisualizado: Date;
+   datCadastro: string;
+   datVisualizado: string;
    municipio: string;
    uf: string;
    uploadArq: string;

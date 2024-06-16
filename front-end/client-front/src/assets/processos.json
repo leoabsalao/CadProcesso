@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "npu": "89789357894378929",
+    "datCadastro":"2024-06-20 00:00:00",
+    "datVisualizado":"2024-06-20 00:00:00",
+    "municipio":"Barra de Jangada",
+    "uf":"PE",
+    "uploadArq":"caminho do arquivo",
+    "visualizado": true
+  }
+]
