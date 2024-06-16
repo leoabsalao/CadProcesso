@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { SharedModule } from '../shared/shared.module';
 import { VisualMaterialModule } from '../shared/visual-material/visual-material.module';
 import { ProcessosRoutingModule } from './processos-routing.module';
 import { ProcessosComponent } from './processos/processos.component';
@@ -13,7 +14,8 @@ import { ProcessosComponent } from './processos/processos.component';
   imports: [
     CommonModule,
     ProcessosRoutingModule,
-    VisualMaterialModule
+    VisualMaterialModule,
+    SharedModule
   ]
 })
 export class ProcessosModule { }
