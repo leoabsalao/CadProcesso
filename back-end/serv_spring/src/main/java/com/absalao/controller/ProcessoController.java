@@ -2,9 +2,7 @@ package com.absalao.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.absalao.dtos.ProcessoDTO;
 import com.absalao.model.Processo;
-import com.absalao.repository.ProcessoRepository;
 import com.absalao.service.ProcessoService;
 
 import lombok.AllArgsConstructor;
