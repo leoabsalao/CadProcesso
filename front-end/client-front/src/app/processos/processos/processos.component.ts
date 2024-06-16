@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Processo } from '../model/processo';
 
 @Component({
   selector: 'app-processos',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessosComponent implements OnInit {
 
-  constructor() { }
+  DataSourceProcessos: Processo[] = [];
+  displayedColumns = ['npu','datCadastro', 'datVisualizado', 'municipio', 'uf', 'uploadArq', 'visualizado'];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

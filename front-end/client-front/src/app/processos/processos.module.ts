@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 
 import { ProcessosRoutingModule } from './processos-routing.module';
 import { ProcessosComponent } from './processos/processos.component';
@@ -11,7 +12,8 @@ import { ProcessosComponent } from './processos/processos.component';
   ],
   imports: [
     CommonModule,
-    ProcessosRoutingModule
+    ProcessosRoutingModule,
+    MatTableModule
   ]
 })
 export class ProcessosModule { }
