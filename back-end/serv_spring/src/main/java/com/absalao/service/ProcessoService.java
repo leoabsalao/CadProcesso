@@ -19,8 +19,9 @@ public class ProcessoService {
 
     public Processo findByProcesso(Long id) throws Exception {        
         Optional<Processo> obj = repProcesso.findById(id);
+
     	return obj.orElseThrow(() -> new ObjectNotFoundException(
-    			"Processo não encontrado! Id: "+id+", NPU:"+Processo.class.getName(), null));
+    		"Processo não encontrado! Id: "+id+", NPU:"+Processo.class.getName(), null));
     }        
     
     public List<Processo> findProcessoTodos(){
