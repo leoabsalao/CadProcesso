@@ -15,7 +15,7 @@ export class ProcessosComponent implements OnInit {
 
   DataSourceProcessos$: Observable<Processo[]>;
 
-  displayedColumns = ['npu','datCadastro', 'datVisualizado', 'municipio', 'uf', 'uploadArq', 'visualizado'];
+  displayedColumns = ['npu','datCadastro', 'datVisualizado', 'municipio', 'uf', 'uploadArq', 'visualizado','actions'];
 
   constructor(
     private processoServico: ProcessoService,

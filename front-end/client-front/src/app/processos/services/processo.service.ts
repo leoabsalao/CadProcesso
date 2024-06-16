@@ -10,7 +10,10 @@ export class ProcessoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API ='/assets/processos.json';
+  //private readonly API ='/assets/processos.json';
+
+  private readonly API ='http://localhost:8080/api/processos';
+
 
   dataCadastro: Date = new Date("2024-06-20");
   dataVisualizado: Date = new Date("2024-06-24");
