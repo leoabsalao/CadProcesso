@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { ProcessoService } from '../services/processo.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Processo } from '../model/processo';
 
 @Component({
   selector: 'app-processos-form',
@@ -14,6 +16,7 @@ export class ProcessosFormComponent implements OnInit {
 
   //formProcesso: FormGroup;
   formProcesso = this.formBuilder.group({
+    _id: [''],
     npu: [''],
     datCadastro: [''],
     datVisualizado: [''],
@@ -26,11 +29,23 @@ export class ProcessosFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private service: ProcessoService,
     private snackBar: MatSnackBar,
-    private location: Location
+    private location: Location,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
+    const processo: Processo = this.route.snapshot.data['processo'];
+    this.formProcesso.setValue({
+      _id: processo._id,
+      npu: processo.npu,
+      datCadastro: processo.datCadastro,
+      datVisualizado: processo.datVisualizado,
+      municipio: processo.municipio,
+      uf: processo.uf,
+      uploadArq: processo.uploadArq,
+      visualizado: processo.visualizado
+    });
   }
 
   onSubmit(){

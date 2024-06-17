@@ -11,6 +11,7 @@ export class ProcessosListComponent implements OnInit {
 
   @Input() DataSourceProcessos: Processo[] = [];
   @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
 
   readonly displayedColumns = ['npu','datCadastro', 'datVisualizado', 'municipio', 'uf', 'uploadArq', 'visualizado','actions'];
 
@@ -21,6 +22,10 @@ export class ProcessosListComponent implements OnInit {
 
   onAdd(){
     this.add.emit(true);
+  }
+
+  onEdit(processo: Processo){
+    this.edit.emit(processo);
   }
 
 }

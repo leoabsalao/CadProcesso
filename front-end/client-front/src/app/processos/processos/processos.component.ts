@@ -34,11 +34,11 @@ export class ProcessosComponent implements OnInit {
   }
 
   onAdd(){
-    this.router.navigate(['processos/novoProcesso']);
+    this.router.navigate(['novoProcesso'], {relativeTo: this.route});
   }
 
-  onEdit(){
-    this.router.navigate(['processos/atualizaProcesso']);
+  onEdit(processo: Processo){
+    this.router.navigate(['atualizaProcesso', processo._id],{relativeTo: this.route});
   }
 
   onDelete(){

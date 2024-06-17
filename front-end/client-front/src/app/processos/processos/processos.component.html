@@ -6,6 +6,7 @@
       *ngIf="DataSourceProcessos$ | async as DataSourceProcessos; else loading"
       [DataSourceProcessos] = "DataSourceProcessos"
       (add)="onAdd()"
+      (edit)="onEdit($event)"
     ></app-processos-list>
 
     <ng-template #loading>

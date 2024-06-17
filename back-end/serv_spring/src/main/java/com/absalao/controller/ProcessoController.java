@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -58,6 +59,25 @@ public class ProcessoController {
        // return serviceProcesso.SalvarProcesso(processo);
         //return ResponseEntity.status(HttpStatus.CREATED).body(serviceProcesso.SalvarProcesso(processo));
         return processoRepository.save(processo);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/{id}")
+    public ResponseEntity<Processo> update(@PathVariable Long id, @RequestBody Processo processo){
+      return processoRepository.findById(id)
+            .map(recordFound -> {
+                recordFound.setNpu(processo.getNpu());
+                recordFound.setDatCadastro(processo.getDatCadastro());
+                recordFound.setDatVisualizado(processo.getDatVisualizado());
+                recordFound.setMunicipio(processo.getMunicipio());
+                recordFound.setUf(processo.getUf());
+                recordFound.setUploadArq(processo.getUploadArq());
+                recordFound.setVisualizado(processo.getVisualizado());
+
+                Processo updated = processoRepository.save(recordFound);
+                return ResponseEntity.ok().body(updated);
+            })
+            .orElse(ResponseEntity.notFound().build());
     }
 
     @CrossOrigin(origins = "http://localhost:4200")

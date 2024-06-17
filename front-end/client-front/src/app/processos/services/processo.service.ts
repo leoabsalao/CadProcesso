@@ -25,8 +25,21 @@ export class ProcessoService {
   }
 
   save(record: Processo){
-    //console.log(record);
+    console.log(record);
+    if (record._id){
+      console.log('update');
+      return this.update(record);      
+    }
+    console.log('cria');
+    return this.create(record);
+  }
+
+  private create(record: Processo){
     return this.httpClient.post<Processo>(this.API, record).pipe(first());
+  }
+
+  private update(record: Processo){
+    return this.httpClient.put<Processo>(`${this.API}/${record._id}`, record).pipe(first());
   }
 
   remove(id: string){
