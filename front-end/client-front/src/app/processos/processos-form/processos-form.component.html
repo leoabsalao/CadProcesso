@@ -5,19 +5,23 @@
       <form [formGroup]="formProcesso" class="">
         <mat-form-field class="full-width">
           <input matInput placeholder="NPU" formControlName="npu">
+          <mat-error *ngIf="formProcesso.get('npu')?.invalid">{{getErrorMessage("npu")}}</mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Data Cadastro" formControlName="datCadastro">
+          <input matInput placeholder="Data Cadastro (Formato: yyyy-mm-dd)" formControlName="datCadastro">
+          <mat-error *ngIf="formProcesso.get('datCadastro')?.invalid">{{getErrorMessage("datCadastro")}}</mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Data Visualizado" formControlName="datVisualizado">
+          <input matInput placeholder="Data Visualizado. (Formato: yyyy-mm-dd)" formControlName="datVisualizado">
+          <mat-error *ngIf="formProcesso.get('datVisualizado')?.invalid">{{getErrorMessage("datVisualizado")}}</mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>UF</mat-label>
           <mat-select formControlName="uf">
+            <mat-error *ngIf="formProcesso.get('uf')?.invalid">{{getErrorMessage("uf")}}</mat-error>
             <mat-option value="PE">Pernambuco</mat-option>
             <mat-option value="JP">Joao Pessoa</mat-option>
             <mat-option value="CE">Ceara</mat-option>
@@ -29,6 +33,7 @@
 
         <mat-form-field class="full-width">
           <input matInput placeholder="Município" formControlName="municipio">
+          <mat-error *ngIf="formProcesso.get('municipio')?.invalid">{{getErrorMessage("municipio")}}</mat-error>
         </mat-form-field>
       </form>
   </mat-card-content>

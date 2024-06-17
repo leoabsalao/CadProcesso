@@ -17,11 +17,11 @@ export class ProcessosFormComponent implements OnInit {
   //formProcesso: FormGroup;
   formProcesso = this.formBuilder.group({
     _id: [''],
-    npu: [''],
-    datCadastro: [''],
-    datVisualizado: [''],
-    municipio: [''],
-    uf: [''],
+    npu: ['', [Validators.required, Validators.maxLength(20)]],
+    datCadastro: ['', [Validators.required, Validators.maxLength(10)]],
+    datVisualizado: ['', [Validators.required, Validators.maxLength(10)]],
+    municipio: ['', [Validators.required]],
+    uf: ['', [Validators.required]],
     uploadArq: [''],
     visualizado: false
   });
@@ -64,5 +64,19 @@ export class ProcessosFormComponent implements OnInit {
 
   private onError(){
     this.snackBar.open('Erro ao salvar o processo.','',{duration:5000});
+  }
+
+  getErrorMessage(fieldName: string){
+    const field = this.formProcesso.get(fieldName);
+
+    if (field?.hasError('required')){
+        return 'Campo obrigatório';
+    }
+
+    if (field?.hasError('maxlength')){      
+      return 'Excedeu o tamnho máximo permitido pelo campo.';
+    }
+
+    return 'Campo inválido!';
   }
 }
