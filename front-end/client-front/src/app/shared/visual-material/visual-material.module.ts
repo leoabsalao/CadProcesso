@@ -6,8 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 @NgModule({
@@ -20,8 +23,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
       MatIconModule,
       MatButtonModule,
       MatFormFieldModule,
-      MatSelectModule
-           
+      MatSelectModule,
+      MatSnackBarModule,
+      MatInputModule
     ],
 
 })

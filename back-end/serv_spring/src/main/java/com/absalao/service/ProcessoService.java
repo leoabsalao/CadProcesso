@@ -28,8 +28,8 @@ public class ProcessoService {
         return this.repProcesso.findAll();
     }
 
-    public void SalvarProcesso(Processo processo){
-        this.repProcesso.save(processo);
+    public Processo SalvarProcesso(Processo processo){
+        return this.repProcesso.save(processo);
     }
 
 

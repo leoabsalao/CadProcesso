@@ -30,18 +30,16 @@ public class Processo implements Serializable {
 
     @Column(length = 20, unique = true, nullable = false)
     private String npu;
-
-    @Column(length = 20, nullable = false)
-  //  @DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime datCadastro;
-
-    @Column(length = 20, nullable = false)
     //@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")    
-    private LocalDateTime datVisualizado;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(length = 20, nullable = false)
+    private String datCadastro;
+    //@DateTimeFormat(pattern="dd/MM/yyyy HH:mm:ss") 
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")    
+    @Column(length = 20, nullable = false)        
+    private String datVisualizado;
     
     @Column(length = 70, nullable = false)
     private String municipio;
@@ -49,7 +47,7 @@ public class Processo implements Serializable {
     @Column(length = 2, nullable = false)
     private String uf;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 200, nullable = true)
     private String uploadArq;
     
     @Column(nullable = false)

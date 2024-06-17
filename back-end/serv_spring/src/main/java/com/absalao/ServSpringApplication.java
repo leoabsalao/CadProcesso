@@ -27,10 +27,10 @@ public class ServSpringApplication {
 		Processo p = new Processo();
 
 		p.setNpu("66666666786786843868");
-		p.setDatCadastro(LocalDateTime.now());
-		p.setDatVisualizado(LocalDateTime.now());
+		p.setDatCadastro("2024-05-01");
+		p.setDatVisualizado("2024-05-13");
 		p.setMunicipio("Barra de Jangada");
-		p.setUf("UF");
+		p.setUf("PE");
 		p.setUploadArq("caminho do upload do aqrquivo");
 		p.setVisualizado(true);
 

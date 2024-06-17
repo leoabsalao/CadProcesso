@@ -1,31 +1,39 @@
 <mat-card appearance="outlined">
-    <mat-toolbar color="primary"><span>Preencha os dados do processo</span></mat-toolbar>    
+    <mat-toolbar color="primary"><span>Preencha os dados do processo</span></mat-toolbar>
 
     <mat-card-content>
-      <form [formGroup]="formProcesso">
-        <mat-form-field class="full-width">  
-          <input  placeholder="NPU" formControlName="npu">    
-        </mat-form-field>
-        
-        <mat-form-field class="full-width">  
-          <input  placeholder="Data Cadastro" formControlName="datCadastro">    
+      <form [formGroup]="formProcesso" class="">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="NPU" formControlName="npu">
         </mat-form-field>
 
-        <mat-form-field class="full-width">  
-          <input  placeholder="Data Visualizado" formControlName="datVisualizado">    
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Data Cadastro" formControlName="datCadastro">
         </mat-form-field>
 
-        <mat-form-field class="full-width">  
-          <input  placeholder="UF" formControlName="uf">    
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Data Visualizado" formControlName="datVisualizado">
         </mat-form-field>
-      
-        <mat-form-field class="full-width">  
-          <input  placeholder="Município" formControlName="municipio">    
+
+        <mat-form-field class="full-width">
+          <mat-label>UF</mat-label>
+          <mat-select formControlName="uf">
+            <mat-option value="PE">Pernambuco</mat-option>
+            <mat-option value="JP">Joao Pessoa</mat-option>
+            <mat-option value="CE">Ceara</mat-option>
+            <mat-option value="MG">Minas Gerais</mat-option>
+            <mat-option value="SP">Sao Paulo</mat-option>
+            <mat-option value="RJ">Rio de Janeiro</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Município" formControlName="municipio">
         </mat-form-field>
       </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="onSubmit">Arquivar</button>
-    <button mat-raised-button (click)="onCancel">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Arquivar</button>
+    <button mat-raised-button (click)="onCancel()">Voltar</button>
   </mat-card-actions>
-</mat-card> 
+</mat-card>
