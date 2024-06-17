@@ -36,6 +36,10 @@ export class ProcessosComponent implements OnInit {
     this.router.navigate(['processos/novoProcesso']);
   }
 
+  onEdit(){
+    this.router.navigate(['processos/atualizaProcesso']);
+  }
+
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg

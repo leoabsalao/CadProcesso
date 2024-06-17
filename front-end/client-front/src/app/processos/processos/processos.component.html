@@ -57,15 +57,15 @@
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <!-- Redireciona para um form de cadastro -->
-        <mat-header-cell *matHeaderCellDef>          
+        <mat-header-cell *matHeaderCellDef>
           <button mat-mini-fab color="accent" aria-label="Inserir um processo">
-            <mat-icon (click)="onAdd()"  >add</mat-icon>
+            <mat-icon (click)="onAdd()">add</mat-icon>
           </button>
-        </mat-header-cell>       
+        </mat-header-cell>
 
         <mat-cell *matCellDef="let processo">
           <button mat-icon-button color="primary" aria-label="Editar processo">
-            <mat-icon>edit</mat-icon>
+            <mat-icon (click)="onEdit()">edit</mat-icon>
           </button>
           <button mat-icon-button color="warn" aria-label="Apagar processo">
             <mat-icon>delete</mat-icon>

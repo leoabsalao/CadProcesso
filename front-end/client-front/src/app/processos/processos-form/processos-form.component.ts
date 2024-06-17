@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ProcessoService } from '../services/processo.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,22 +12,22 @@ import { Validators } from '@angular/forms';
 })
 export class ProcessosFormComponent implements OnInit {
 
-  formProcesso: FormGroup;
+  //formProcesso: FormGroup;
+  formProcesso = this.formBuilder.group({
+    npu: [''],
+    datCadastro: [''],
+    datVisualizado: [''],
+    municipio: [''],
+    uf: [''],
+    uploadArq: [''],
+    visualizado: false
+  });
 
   constructor(private formBuilder: FormBuilder,
     private service: ProcessoService,
     private snackBar: MatSnackBar,
     private location: Location
   ) {
-    this.formProcesso = this.formBuilder.group({
-      npu: [null],
-      datCadastro: [null],
-      datVisualizado: [null],
-      municipio: [null],
-      uf: [null],
-      uploadArq: [null],
-      visualizado: false
-    });
   }
 
   ngOnInit(): void {
