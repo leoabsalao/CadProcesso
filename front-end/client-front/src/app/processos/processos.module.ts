@@ -7,12 +7,14 @@ import { VisualMaterialModule } from '../shared/visual-material/visual-material.
 import { ProcessosFormComponent } from './processos-form/processos-form.component';
 import { ProcessosRoutingModule } from './processos-routing.module';
 import { ProcessosComponent } from './processos/processos.component';
+import { ProcessosListComponent } from './processos-list/processos-list.component';
 
 
 @NgModule({
   declarations: [
     ProcessosComponent,
-    ProcessosFormComponent
+    ProcessosFormComponent,
+    ProcessosListComponent
   ],
   imports: [
     CommonModule,

@@ -1,87 +1,17 @@
-<mat-card appearance="outlined">
-  <mat-toolbar color="primary"><span>Visualização dos Processos</span></mat-toolbar>
+<mat-card>
+  <mat-toolbar color="primary">Visualização dos Processos</mat-toolbar>
 
-  <mat-card-content></mat-card-content>
-  <div
-    *ngIf="DataSourceProcessos$ | async as DataSourceProcessos; else loading"
-  >
-    <table
-      mat-table
-      [dataSource]="DataSourceProcessos"
-      class="mat-elevation-z8"
-    >
-      <!-- NPU Column -->
-      <ng-container matColumnDef="npu">
-        <th mat-header-cell *matHeaderCellDef>NPU</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.npu }}</td>
-      </ng-container>
+  <div class="column-flex mat-elevation-z8">
+    <app-processos-list
+      *ngIf="DataSourceProcessos$ | async as DataSourceProcessos; else loading"
+      [DataSourceProcessos] = "DataSourceProcessos"
+      (add)="onAdd()"
+    ></app-processos-list>
 
-      <!-- Data de Cadastro Column -->
-      <ng-container matColumnDef="datCadastro">
-        <th mat-header-cell *matHeaderCellDef>Data Cadastro</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.datCadastro }}</td>
-      </ng-container>
-
-      <!-- Data do Processo visualizado Column -->
-      <ng-container matColumnDef="datVisualizado">
-        <th mat-header-cell *matHeaderCellDef>Data Visualizado</th>
-        <td mat-cell *matCellDef="let processo">
-          {{ processo.datVisualizado }}
-        </td>
-      </ng-container>
-
-      <!-- Municipio Column -->
-      <ng-container matColumnDef="municipio">
-        <th mat-header-cell *matHeaderCellDef>Município</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.municipio }}</td>
-      </ng-container>
-
-      <!-- UF Column -->
-      <ng-container matColumnDef="uf">
-        <th mat-header-cell *matHeaderCellDef>UF</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.uf }}</td>
-      </ng-container>
-
-      <!-- Upload do arquivo Column -->
-      <ng-container matColumnDef="uploadArq">
-        <th mat-header-cell *matHeaderCellDef>Upload</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.uploadArq }}</td>
-      </ng-container>
-
-      <!-- Campo de Visualizado Column -->
-      <ng-container matColumnDef="visualizado">
-        <th mat-header-cell *matHeaderCellDef>Visualizado</th>
-        <td mat-cell *matCellDef="let processo">{{ processo.visualizado }}</td>
-      </ng-container>
-
-      <!-- Actions Column -->
-      <ng-container matColumnDef="actions">
-        <!-- Redireciona para um form de cadastro -->
-        <mat-header-cell *matHeaderCellDef>
-          <button mat-mini-fab color="accent" aria-label="Inserir um processo">
-            <mat-icon (click)="onAdd()">add</mat-icon>
-          </button>
-        </mat-header-cell>
-
-        <mat-cell *matCellDef="let processo">
-          <button mat-icon-button color="primary" aria-label="Editar processo">
-            <mat-icon (click)="onEdit()">edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" aria-label="Apagar processo">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
-
-  <ng-template #loading>
-    <div class="loading-spinner">
-      <mat-spinner></mat-spinner>
-    </div>
-  </ng-template>
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+ </div>
 </mat-card>

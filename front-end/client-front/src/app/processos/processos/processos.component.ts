@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-processos',
@@ -21,7 +21,8 @@ export class ProcessosComponent implements OnInit {
   constructor(
     private processoServico: ProcessoService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     // Chamando os métodos da camada de Serviço
       this.DataSourceProcessos$ = this.processoServico.listarProcessosTodos().pipe(
@@ -38,6 +39,10 @@ export class ProcessosComponent implements OnInit {
 
   onEdit(){
     this.router.navigate(['processos/atualizaProcesso']);
+  }
+
+  onDelete(){
+
   }
 
   onError(errorMsg: string) {

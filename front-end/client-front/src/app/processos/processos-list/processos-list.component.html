@@ -1,0 +1,68 @@
+<mat-table [dataSource]="DataSourceProcessos">
+  <!-- NPU Column -->
+  <ng-container matColumnDef="npu">
+    <mat-header-cell *matHeaderCellDef>NPU</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.npu }}</mat-cell>
+  </ng-container>
+
+  <!-- Data de Cadastro Column -->
+  <ng-container matColumnDef="datCadastro">
+    <mat-header-cell *matHeaderCellDef>Data Cadastro</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.datCadastro }}</mat-cell>
+  </ng-container>
+
+  <!-- Data do Processo visualizado Column -->
+  <ng-container matColumnDef="datVisualizado">
+    <mat-header-cell *matHeaderCellDef>Data Visualizado</mat-header-cell>
+    <mat-cell *matCellDef="let processo">
+      {{ processo.datVisualizado }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Municipio Column -->
+  <ng-container matColumnDef="municipio">
+    <mat-header-cell *matHeaderCellDef>Município</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.municipio }}</mat-cell>
+  </ng-container>
+
+  <!-- UF Column -->
+  <ng-container matColumnDef="uf">
+    <mat-header-cell *matHeaderCellDef>UF</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.uf }}</mat-cell>
+  </ng-container>
+
+  <!-- Upload do arquivo Column -->
+  <ng-container matColumnDef="uploadArq">
+    <mat-header-cell *matHeaderCellDef>Upload</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.uploadArq }}</mat-cell>
+  </ng-container>
+
+  <!-- Campo de Visualizado Column -->
+  <ng-container matColumnDef="visualizado">
+    <mat-header-cell *matHeaderCellDef>Visualizado</mat-header-cell>
+    <mat-cell *matCellDef="let processo">{{ processo.visualizado }}</mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <!-- Redireciona para um form de cadastro -->
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Inserir um processo">
+        <mat-icon (click)="onAdd()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let processo" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar processo">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Apagar processo">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

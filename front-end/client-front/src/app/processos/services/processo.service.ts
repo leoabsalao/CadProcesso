@@ -20,9 +20,17 @@ export class ProcessoService {
     return this.httpClient.get<Processo[]>(this.API)
   }
 
+  buscaPorId(id: string){
+    return this.httpClient.get<Processo>(`${this.API}/${id}`);
+  }
+
   save(record: Processo){
     //console.log(record);
     return this.httpClient.post<Processo>(this.API, record).pipe(first());
+  }
+
+  remove(id: string){
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 
 }
