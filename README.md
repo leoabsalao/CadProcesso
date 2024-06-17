@@ -16,7 +16,7 @@
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Angular](https://angular.io/), [Angular Material](https://material.angular.io/), [Node](https://nodejs.org/en/download/package-manager), [Vs Code](https://code.visualstudio.com/), [Spring Boot](https://spring.io/projects/spring-boot) e o [JDK 17.0 LTS](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+[Angular](https://angular.io/), [Angular Material](https://material.angular.io/), [Node](https://nodejs.org/en/download/package-manager), [Vs Code](https://code.visualstudio.com/), [Spring Boot](https://spring.io/projects/spring-boot) [Insomnia](https://insomnia.rest/download)  e o [JDK 17.0 LTS](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
 
 ## Tecnologias 
 🛠 Ferramentas utilizadas
@@ -28,6 +28,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Node](https://nodejs.org/en/download/package-manager)
 - [Vs Code](https://code.visualstudio.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
+- [Insomnia](https://insomnia.rest/download)
 - [JDK 17.0 LTS](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 
 ## Banco de Dados
