@@ -1,2 +1,2 @@
-# CadProcesso
-CRUD completo para um cadastro de números de processos judiciais utilizando as linguagens Angular e Java
+# Informação
+Todo o projeto de Angular e Java Spring boot foi colocado na branch (MASTER).
