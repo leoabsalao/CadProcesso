@@ -9,7 +9,8 @@
 
 <!--ts-->
    * [Instalação](#instalacao)
-   * [Tecnologias](#tecnologias)   
+   * [Tecnologias](#tecnologias)
+   * [Banco de Dados](#banco)   
 <!--te-->
 ## Instalação
 ### Pré-requisitos
@@ -28,3 +29,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Vs Code](https://code.visualstudio.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [JDK 17.0 LTS](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+## Banco de Dados
+
+- O banco de dados utilizado foi o H2.
