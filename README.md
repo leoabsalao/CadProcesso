@@ -9,9 +9,7 @@
 
 <!--ts-->
    * [Instalação](#instalacao)
-   * [Tecnologias](#tecnologias)
-   * [Desenvolvimento](#desenvolvimento)
-   * [Usabilidade](#usabilidade) 
+   * [Tecnologias](#tecnologias)   
 <!--te-->
 ## Instalação
 ### Pré-requisitos
