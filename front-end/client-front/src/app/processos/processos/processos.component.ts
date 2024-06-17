@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Processo } from '../model/processo';
-import { ProcessoService } from './../services/processo.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { ActivatedRoute, Router } from '@angular/router';
+
+import { Processo } from '../model/processo';
+import { ProcessoService } from './../services/processo.service';
 
 @Component({
   selector: 'app-processos',
@@ -14,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProcessosComponent implements OnInit {
 
-  DataSourceProcessos$: Observable<Processo[]>;
+  DataSourceProcessos$: Observable<Processo[]> | null = null;
 
   displayedColumns = ['npu','datCadastro', 'datVisualizado', 'municipio', 'uf', 'uploadArq', 'visualizado','actions'];
 
@@ -22,15 +24,19 @@ export class ProcessosComponent implements OnInit {
     private processoServico: ProcessoService,
     public dialog: MatDialog,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar:MatSnackBar
   ) {
-    // Chamando os métodos da camada de Serviço
-      this.DataSourceProcessos$ = this.processoServico.listarProcessosTodos().pipe(
-        catchError(error => {
-          this.onError('Erro ao carregar os processos.')
-          return of([])
-        })
-      );
+    this.refresh();
+  }
+
+  refresh(){
+    this.DataSourceProcessos$ = this.processoServico.listarProcessosTodos().pipe(
+      catchError(error => {
+        this.onError('Erro ao carregar os processos.')
+        return of([])
+      })
+    );
   }
 
   onAdd(){
@@ -41,8 +47,18 @@ export class ProcessosComponent implements OnInit {
     this.router.navigate(['atualizaProcesso', processo._id],{relativeTo: this.route});
   }
 
-  onDelete(){
-
+  onRemove(processo: Processo){
+    this.processoServico.remove(processo._id).subscribe(
+      () => {
+        this.refresh();
+        this.snackBar.open('Processo removido com sucesso.','',{
+          duration: 5000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center'
+        });
+      },
+        () => this.onError('Erro ao tentar remover um processo.') 
+    );
   }
 
   onError(errorMsg: string) {
